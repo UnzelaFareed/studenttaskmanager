@@ -34,3 +34,5 @@ python -m unittest discover -s tests -v
 
 ## License
 This project is licensed under the MIT License.
+
+Project status: Planning
