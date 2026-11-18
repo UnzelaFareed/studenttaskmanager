@@ -19,10 +19,14 @@ def main():
 
             title = input("Enter task title: ")
 
-            task = manager.add_task(title)
+            try:
+                task = manager.add_task(title)
 
-            print("Task added successfully!")
-            print("Task ID:", task["id"])
+                print("Task added successfully!")
+                print("Task ID:", task["id"])
+
+            except ValueError as e:
+                print("Error:", e)
 
         elif choice == "2":
 
