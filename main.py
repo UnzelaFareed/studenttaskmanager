@@ -11,7 +11,8 @@ def main():
         print("\n===== Student Task Manager =====")
         print("1. Add Task")
         print("2. Display Tasks")
-        print("3. Exit")
+        print("3. Complete Task")
+        print("4. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -19,10 +20,14 @@ def main():
 
             title = input("Enter task title: ")
 
-            task = manager.add_task(title)
+            try:
+                task = manager.add_task(title)
 
-            print("Task added successfully!")
-            print("Task ID:", task["id"])
+                print("Task added successfully!")
+                print("Task ID:", task["id"])
+
+            except ValueError as e:
+                print("Error:", e)
 
         elif choice == "2":
 
@@ -40,6 +45,19 @@ def main():
                 )
 
         elif choice == "3":
+
+            try:
+                task_id = int(input("Enter Task ID to complete: "))
+
+                if manager.complete_task(task_id):
+                    print("Task completed successfully!")
+                else:
+                    print("Task ID not found!")
+
+            except ValueError:
+                print("Please enter a valid numeric Task ID!")
+
+        elif choice == "4":
 
             print("Goodbye!")
             break
